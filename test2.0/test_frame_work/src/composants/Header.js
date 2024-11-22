@@ -3,33 +3,28 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () => {
-    const navigate = useNavigate(); // Hook pour la navigation
+    const navigate = useNavigate();
 
-    // États pour chaque option sélectionnée
     const [selectedPhaserOption, setSelectedPhaserOption] = useState("");
     const [selectedGsapOption, setSelectedGsapOption] = useState("");
 
-    // Fonction pour gérer le changement d'option pour Phaser
     const handlePhaserSelectChange = (event) => {
         const value = event.target.value;
-        setSelectedPhaserOption(value); // Met à jour l'état de Phaser
+        setSelectedPhaserOption(value);
         if (value) {
-            navigate(value); // Redirige vers la route sélectionnée
+            navigate(value);
         }
 
-        // Réinitialise l'autre select (GSAP)
         setSelectedGsapOption("");
     };
 
-    // Fonction pour gérer le changement d'option pour GSAP
     const handleGsapSelectChange = (event) => {
         const value = event.target.value;
-        setSelectedGsapOption(value); // Met à jour l'état de GSAP
+        setSelectedGsapOption(value);
         if (value) {
-            navigate(value); // Redirige vers la route sélectionnée
+            navigate(value);
         }
 
-        // Réinitialise l'autre select (Phaser)
         setSelectedPhaserOption("");
     };
 
@@ -43,9 +38,9 @@ const Header = () => {
                 >
                     <option value="" disabled>Selectionner test Phaser</option>
                     <option value="/test_sprite_ph">Test sprite/images</option>
-                    <option value="/phaser_game">Test 2</option>
+                    <option value="/phaser_game">Test Animation</option>
                     <option value="/phaser_menu_test">Test Menu</option>
-                    <option value="/three_canvas">Test 3</option>
+                    <option value="/phaser_audio_test">Test Audio</option>
                 </select>
                 <select
                     value={selectedGsapOption}
@@ -55,9 +50,9 @@ const Header = () => {
                 >
                     <option value="" disabled>Selectionner test Three.js</option>
                     <option value="/test_sprite_three">Test sprite/images</option>
-                    <option value="/three_canvas">Test 2</option>
+                    <option value="/three_canvas">Test Animation</option>
                     <option value="/three_menu_test">Test Menu Three</option>
-                    <option value="/test_automatisation">Test 3</option>
+                    <option value="/three_auido_test">Test Audio</option>
                 </select>
             </nav>
         </header>

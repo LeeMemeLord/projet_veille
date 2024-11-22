@@ -8,6 +8,8 @@ import PhaserGame from "./composants/PhaserGame";
 import ThreeCanvas from "./composants/ThreeCanvas";
 import MenuTesterPhaser from "./composants/MenuTesterPhaser";
 import MenuTesterThree from "./composants/MenuTesterThree";
+import TestAudioPhaser from "./composants/TestAudioPhaser";
+import TestAudioThree from "./composants/TestAudioThree";
 
 function App() {
     return (
@@ -22,6 +24,8 @@ function App() {
                     <Route path="/three_canvas" element={<ThreeCanvas />} />
                     <Route path="/phaser_menu_test" element={<MenuTesterPhaser />} />
                     <Route path="/three_menu_test" element={<MenuTesterThree />} />
+                    <Route path="/phaser_audio_test" element={<TestAudioPhaser />} />
+                    <Route path="/three_auido_test" element={<TestAudioThree />} />
                 </Routes>
             </div>
         </Router>
