@@ -17,7 +17,6 @@ const TestAudioThree = () => {
     const music2Ref = useRef(null);
 
     useEffect(() => {
-        // Setup de la scène Three.js
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer();
@@ -71,7 +70,6 @@ const TestAudioThree = () => {
     }, [music2Volume]);
 
     const playMusic1 = () => {
-        if (music2Playing) stopMusic2();
         setMusic1Playing(true);
         if (music1Ref.current && !music1Ref.current.isPlaying) {
             music1Ref.current.play();
@@ -79,7 +77,7 @@ const TestAudioThree = () => {
     };
 
     const playMusic2 = () => {
-        if (music1Playing) stopMusic1();
+
         setMusic2Playing(true);
         if (music2Ref.current && !music2Ref.current.isPlaying) {
             music2Ref.current.play();

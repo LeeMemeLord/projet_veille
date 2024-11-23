@@ -10,6 +10,8 @@ import MenuTesterPhaser from "./composants/MenuTesterPhaser";
 import MenuTesterThree from "./composants/MenuTesterThree";
 import TestAudioPhaser from "./composants/TestAudioPhaser";
 import TestAudioThree from "./composants/TestAudioThree";
+import TestScenePhaser from "./composants/TestScenePhaser";
+import TestSceneThree from "./composants/TestSceneThree";
 
 function App() {
     return (
@@ -26,6 +28,8 @@ function App() {
                     <Route path="/three_menu_test" element={<MenuTesterThree />} />
                     <Route path="/phaser_audio_test" element={<TestAudioPhaser />} />
                     <Route path="/three_auido_test" element={<TestAudioThree />} />
+                    <Route path="/phaser_scene_test" element={<TestScenePhaser />} />
+                    <Route path="/three_scene_test" element={<TestSceneThree />} />
                 </Routes>
             </div>
         </Router>

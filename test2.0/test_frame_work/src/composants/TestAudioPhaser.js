@@ -26,18 +26,9 @@ const TestAudioPhaser = () => {
                     this.load.audio('music2', bgMusic2);
                 },
                 create: function () {
-                    music1Ref.current = this.sound.add('music1', { loop: true });
-                    music2Ref.current = this.sound.add('music2', { loop: true });
+                    music1Ref.current = this.sound.add('music1', { loop: true, volume: music1Volume });
+                    music2Ref.current = this.sound.add('music2', { loop: true, volume: music2Volume });
                 },
-                update: function () {
-                    // Ajuster le volume de la musique
-                    if (music1Playing && music1Ref.current) {
-                        music1Ref.current.setVolume(music1Volume);
-                    }
-                    if (music2Playing && music2Ref.current) {
-                        music2Ref.current.setVolume(music2Volume);
-                    }
-                }
             }
         };
 
@@ -46,7 +37,20 @@ const TestAudioPhaser = () => {
         return () => {
             game.destroy(true);
         };
-    }, [music1Playing, music2Playing, music1Volume, music2Volume]);
+    }, []);
+
+    // Met à jour les volumes lorsque les sliders changent
+    useEffect(() => {
+        if (music1Ref.current) {
+            music1Ref.current.setVolume(music1Volume);
+        }
+    }, [music1Volume]);
+
+    useEffect(() => {
+        if (music2Ref.current) {
+            music2Ref.current.setVolume(music2Volume);
+        }
+    }, [music2Volume]);
 
     const playMusic1 = () => {
         setMusic1Playing(true);
@@ -81,28 +85,38 @@ const TestAudioPhaser = () => {
             <div ref={phaserGameRef} style={{ position: 'absolute', top: 0, left: 0 }}></div>
 
             <div style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1 }}>
+                <h3>Music 1 Controls</h3>
                 <button onClick={playMusic1}>Play Music 1</button>
-                <button onClick={stopMusic1}>Stop Music 1</button>
-                <br/>
+                <button onClick={stopMusic1} style={{ marginLeft: '10px' }}>Stop Music 1</button>
+                <br />
+                <label htmlFor="music1-volume">Volume:</label>
                 <input
+                    id="music1-volume"
                     type="range"
                     min="0"
                     max="1"
                     step="0.01"
                     value={music1Volume}
                     onChange={(e) => setMusic1Volume(parseFloat(e.target.value))}
+                    style={{ marginLeft: '10px' }}
                 />
             </div>
+
             <div style={{ position: 'absolute', top: '10px', left: '500px', zIndex: 1 }}>
+                <h3>Music 2 Controls</h3>
                 <button onClick={playMusic2}>Play Music 2</button>
-                <button onClick={stopMusic2}>Stop Music 2</button>
+                <button onClick={stopMusic2} style={{ marginLeft: '10px' }}>Stop Music 2</button>
+                <br />
+                <label htmlFor="music2-volume">Volume:</label>
                 <input
+                    id="music2-volume"
                     type="range"
                     min="0"
                     max="1"
                     step="0.01"
                     value={music2Volume}
                     onChange={(e) => setMusic2Volume(parseFloat(e.target.value))}
+                    style={{ marginLeft: '10px' }}
                 />
             </div>
         </div>

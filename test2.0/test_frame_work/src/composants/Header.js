@@ -41,6 +41,7 @@ const Header = () => {
                     <option value="/phaser_game">Test Animation</option>
                     <option value="/phaser_menu_test">Test Menu</option>
                     <option value="/phaser_audio_test">Test Audio</option>
+                    <option value="/phaser_scene_test">Test Scence</option>
                 </select>
                 <select
                     value={selectedGsapOption}
@@ -53,6 +54,7 @@ const Header = () => {
                     <option value="/three_canvas">Test Animation</option>
                     <option value="/three_menu_test">Test Menu Three</option>
                     <option value="/three_auido_test">Test Audio</option>
+                    <option value="/three_scene_test">Test Scence</option>
                 </select>
             </nav>
         </header>
